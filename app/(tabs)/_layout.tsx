@@ -5,25 +5,50 @@ export default function TabsLayout() {
   return (
     <Tabs
         screenOptions={{
-            tabBarActiveTintColor: "#33e60f",
-            tabBarInactiveTintColor: "#525252",
+            tabBarActiveTintColor: "#ff7b00",
+            tabBarInactiveTintColor: "#8a8a8a",
+            headerStyle: { backgroundColor: "#333333" },
+            headerShadowVisible: false,
+            tabBarStyle: { backgroundColor: "#333333" },
+            headerTintColor: "#ffffff",
         }}
     >  
         <Tabs.Screen 
             name="index"
             options={{ 
-                title: "Jagger's App",
-                tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="home" color={color} size={size} />
+                headerTitle: "Jagger's App",
+                tabBarIcon: ({ color, focused }) => (
+                    <Ionicons
+                        name={focused ? "home" : "home-outline"}
+                        color={color}
+                        size={24}
+                    />
                 ),
             }}
         />
         <Tabs.Screen
         name="about"
         options={{
-            title: "About",
-            tabBarIcon: ({ color, size }) => (
-                <Ionicons name="information-circle" color={color} size={size} />
+            headerTitle: "About",
+            tabBarIcon: ({ color, focused }) => (
+                <Ionicons 
+                    name={focused ? "information-circle" : "information-circle-outline"}
+                    color={color}
+                    size={24}
+                />
+            ),
+        }}
+        />
+        <Tabs.Screen
+        name="contact"
+        options={{
+            title: "Contact",
+            tabBarIcon: ({ color, focused }) => (
+                <Ionicons
+                    name={focused ? "call" : "call-outline"}
+                    color={color}
+                    size={24}
+                />
             ),
         }}
         />
